@@ -1,0 +1,131 @@
+body {text-align: center;
+            font-family: 'Mozilla Headline', sans-serif;
+        }
+.form{
+            margin-top:10px;
+            margin-bottom:20px;
+            color:grey;border:1px solid grey;
+            display:inline-block;padding:10px;
+            border-radius:10px;
+        }
+p{
+            color:red;
+        }
+.input-container {
+            position: relative;
+            width: 320px;
+            margin: 10px auto;
+        }
+      
+        /* 2. Style the actual input box */
+.fancy-input {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    border: 2px solid #b0bec5; 
+    border-radius: 12px;
+    outline: none;
+    background: #ffffff;
+    color: #2D4256; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-sizing: border-box;
+}
+
+        /* Textarea specific sizing so the floating label works visually */
+textarea.fancy-input {top:-40%;
+            min-height:-20%;
+            resize: vertical;
+            padding-top: -90%; /* Extra padding to accommodate the floating label */
+        }
+#address{top:-40%;
+            min-height:-20%;
+            resize: vertical;
+            padding-top: -90%;}
+
+/* 3. Style the floating label */
+.input-label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #78909c;
+    font-size: 16px;
+    pointer-events: none; 
+    transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: transparent;
+    padding: 0 4px;
+}
+
+.if_any {
+    color: rgb(156, 105, 105);
+    font-size: 14px;
+    margin-top: 12px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.1s ease;
+}
+
+/* --- GLOW EFFECT FIX: Combined focus and text typed states --- */
+.fancy-input:focus,
+.fancy-input:not(:placeholder-shown) {
+    border-color: #1c71c0; 
+    box-shadow: 0 0 12px 3px rgba(28, 113, 192, 0.45);
+} 
+
+/* --- .if_any ANIMATION FIX: Target the span inside the label --- */
+.fancy-input:focus ~ .input-label .if_any,
+.fancy-input:not(:placeholder-shown) ~ .input-label .if_any {
+    animation: if_any_animation 0.7s ease-out forwards;
+}
+
+/* --- LABEL ANIMATION FIX: Grouped selectors cleanly without nesting --- */
+.fancy-input:focus ~ .input-label,
+.fancy-input:not(:placeholder-shown) ~ .input-label {
+    top: 0;
+    font-size: 12px;
+    color: #3a6787; 
+    background-color: white;
+    opacity: 1; 
+    font-weight: 600;
+    border-radius: 4px;
+    border: 1px solid #d1d1d1;
+}
+
+@keyframes if_any_animation {
+    0% {
+        font-size: 14px;
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    100% {transform: translateX(-200px);
+
+        font-size: 0px;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+.submit {margin-top:-5px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #b0bec5; 
+    border-radius: 12px;
+    outline: none;
+    background: #ffffff;
+    color: #577ea3; 
+    box-sizing: border-box;
+    text-align: center;
+    text-align: left;
+    padding-left: 40%;
+    padding-right: 50%;
+    transition: background-color 0.5s ease,color 0.8s ease;;
+    
+}
+.submit:hover {
+    background-color: #1c71c0;
+    color: white;
+    border-color: #1c71c0;
+    cursor: pointer;
+}

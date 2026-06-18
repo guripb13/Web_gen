@@ -15,7 +15,7 @@ if (form && rightPanel) {
             
             setTimeout(function() {
                 submitBtn.remove();
-            }, 500); // Remove after animation starts
+            }, 190); // Remove after animation starts
         }}
         if (mainContent) {
             mainContent.classList.add('to_left');

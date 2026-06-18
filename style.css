@@ -34,12 +34,12 @@ body::-webkit-scrollbar {
             100% { opacity: 1; max-height: auto; }
         }
         .form.shrink {
-            animation: shrinkForm 0.5s ease-in forwards;
+            animation: shrinkForm 0.9s ease-in forwards;
         }
         @keyframes shrinkForm {
             0% { max-height: 390px; padding: 10px; }
-            99% { max-height: 345px; padding: 10px; }   
-            100% { max-height: auto; padding: 10px; }
+            20% { max-height: 345px; padding: 10px; }   
+            90% { max-height: auto; padding: 10px; }
         }
 p{
             color:red;

@@ -1,17 +1,23 @@
-.panel{
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+.panel{-ms-overflow-style: none;  
+    scrollbar-width: none;
     position: fixed;
-    display : flex;
+    display : block;
     top: 0;
     right: 0;
     width: 40vw;
     height: 100vh;
     background-color: #ffffff;
-    
+    text-align: left;
     padding: 40px 30px;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Mozilla Headline', sans-serif;
     transform: translateX(102%);
     transition: transform 0.6s ease-in-out;
+    overflow-y: auto
 }
 
 .panel.open {
@@ -29,3 +35,180 @@
         background-color: #FAF9F6;
         box-shadow: -5px 0 15px rgba(0,0,0,0.3);
     }}
+
+/* Style the entire container block */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    padding: 25px 20px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+    margin-bottom: 10px;
+    transition: box-shadow 0.5s ease, border-radius 1.5s ease, background-color 0.5s ease;
+    
+
+}
+
+/* Add a subtle hover effect to the whole container */
+.checkbox-container:hover {
+    background-color: #f5f5f5;
+    border-color: #1c71c0; 
+    
+    animation: border-radius-animation 0.1s forwards; /* Optional: Smooth transition for border-radius */
+    box-shadow: 0 0 12px 3px rgba(28, 113, 192, 0.45);
+    transition: box-shadow 0.2s ease, border-radius 0.5s ease, background-color 0.2s ease;
+}
+@keyframes border-radius-animation {
+    from { border-radius: 20px; }
+    to { border-radius: 12px; }
+}
+
+/* Hide the native checkbox visually but keep it accessible */
+.hidden-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Style your custom checkbox square */
+.checkbox-box {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #757575;
+    border-radius: 2px;
+    margin-right: 12px;
+    display: inline-block;
+    position: relative;
+    border-radius: 5px; 
+}
+
+/* Add a checkmark inside the custom box when checked */
+.hidden-checkbox:checked + .checkbox-box {
+    background-color: #007bff; /* Change this to your preferred fill color */
+    border-color: #007bff;
+    border-radius:100%;
+    box-shadow: 0 0 1px 1px rgba(28, 113, 192, 0.45);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>');
+}
+.checkbox-container:has(.hidden-checkbox:checked) {
+    background-color: #daf6ff;
+    
+}
+/* Style the accompanying text */
+.checkbox-text {
+    font-family: 'Mozilla Headline', sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+.hidden-checkbox:checked ~ .checkbox-text {
+    
+    animation : text-animation 0.6s forwards;
+    
+}
+@keyframes text-animation {
+    0% {color: #000000; 
+    font-weight: 200;
+    border-radius: 4px;
+    
+    ;}
+    100% {
+       color: #000000; 
+    font-weight: 600;
+    border-radius: 4px;
+    
+    
+    }
+    100% {
+        
+}}
+.hidden-checkbox:checked ~ .checkbox-text .issue{
+    animation : if_any_animation 0.7s forwards;
+}
+@keyframes if_any_animation {
+    0% {
+        font-size: 14px;
+        opacity: 1;
+    }
+    29%{filter:blur(2px);}
+    30% {
+        opacity: 0.9;
+    }
+    31% {
+
+        
+        opacity: 0.9;
+        visibility: hidden;
+    }
+    33%{color:transparent}
+    100% {
+
+        font-size: 0px;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+.checkbox-text .issue {
+    display: inline-block; /* Required for font-size scale transitions to render smoothly */
+    /* Triggers when the checkbox is NOT checked */
+    animation: if_any_animation_reverse 0.7s forwards; 
+}
+@keyframes if_any_animation_reverse {
+    0% {
+        font-size: 0px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    30% {
+        opacity: 0;
+    }
+    50% {filter:blur(2px);
+        
+        
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    100% {
+        font-size: 14px;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+.final-submit-button {
+    display: none; /* Initially hidden */
+   
+}
+.panel:has(.hidden-checkbox:checked) .final-submit-button {
+    /* THE TWO FIXES REQUIRED */
+    box-sizing: border-box; 
+    bottom: -10px;           
+    width: 100%;
+    position: sticky;
+    z-index: 100;          
+    background-color: #1c71c0; 
+    text-align: center;
+    padding: 20px;
+    display: block;        
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid #b0bec5; 
+    border-radius: 16px;
+    cursor: pointer;
+    animation: show-button 0.5s forwards;
+    box-shadow: 0px 10px 20px 30px white;
+}
+@keyframes show-button {
+       0% {
+        opacity: 0;
+    transform: translateY(20px);
+    }
+    100% {
+    opacity: 1;
+
+    }
+}

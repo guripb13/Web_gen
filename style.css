@@ -1,20 +1,62 @@
-body {text-align: center;
-            font-family: 'Mozilla Headline', sans-serif;
-        }
-.form{
-            margin-top:10px;
+body {
+    text-align: center;
+    font-family: 'Mozilla Headline', sans-serif;
+    margin-top: 0;
+    
+    /* Ensures scrolling is still active even when hidden */
+    overflow-y: auto; 
+    -ms-overflow-style: none;  /* Hides scrollbar in IE and old Edge */
+    scrollbar-width: none;     /* Hides scrollbar in Firefox */
+}
+
+/* Hides scrollbar for Chrome, Safari, and newer Edge on the entire page */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+        
+.form{  transform: translateX(0);
+            margin-top:1px;
             margin-bottom:20px;
             color:grey;border:1px solid grey;
             display:inline-block;padding:10px;
             border-radius:10px;
+            animation : fade 0.6s ease-out forwards;
+            overflow: hidden;
+            transition: max-height 1.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        @keyframes fade {
+            0% { opacity: 0; max-height: 0; }
+            15% { opacity: 0.3; max-height: 100px; }
+            20% { opacity: 0.5; max-height: 100px; }
+            30% { opacity: 0.8; max-height: 300px; }
+            80% { opacity: 0.9; max-height: 400px; }
+            100% { opacity: 1; max-height: auto; }
+        }
+        .form.shrink {
+            animation: shrinkForm 0.5s ease-in forwards;
+        }
+        @keyframes shrinkForm {
+            0% { max-height: 390px; padding: 10px; }
+            100% { max-height: 340px; padding: 10px; }
         }
 p{
             color:red;
         }
-.input-container {
+.input-container {opacity: 0;
             position: relative;
             width: 320px;
             margin: 10px auto;
+            animation : fadeIn 0.6s ease-out forwards;
+        }
+        .input-container:nth-child(1) { animation-delay: 0.1s; }
+        .input-container:nth-child(2) { animation-delay: 0.2s; }
+        .input-container:nth-child(3) { animation-delay: 0.3s; }
+        .input-container:nth-child(4) { animation-delay: 0.4s; }
+        .input-container:nth-child(5) { animation-delay: 0.5s; }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
       
         /* 2. Style the actual input box */
@@ -128,4 +170,32 @@ textarea.fancy-input {top:-40%;
     color: white;
     border-color: #1c71c0;
     cursor: pointer;
+}
+.app-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* 2. Your main content stretches to take up all available remaining space */
+.main-content {position: relative;
+    margin-top:-50px;
+    flex: 1;
+    padding: 40px;
+    box-sizing: border-box;
+    /* Smoothly animates the form shift when the panel takes up space */
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+.submit.submitted:hover{
+    background-color: #28a745;
+}
+.main-content.to_left {
+   /* Moves the form left by the width of the panel */
+    /* Optional: Adjust padding if needed */
+    animation : slideLeft 1s forwards; /* Smooth slide animation */
+}
+@keyframes slideLeft {
+    0% { transform: translateX(0); }
+
+    100% { transform: translateX(-10vw); }
 }

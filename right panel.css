@@ -1,0 +1,31 @@
+.panel{
+    position: fixed;
+    display : flex;
+    top: 0;
+    right: 0;
+    width: 35vw;
+    height: 100vh;
+    background-color: #ffffff;
+    
+    padding: 40px 30px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    transform: translateX(102%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.panel.open {
+    transform: translateX(0);
+    animation : panel 0.5s forwards;
+}
+@keyframes panel {
+    0% {
+        box-shadow: none;
+    }
+    20% {
+        background-color:#F8F9FA ;
+    }
+    100% {
+        background-color: #FAF9F6;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+    }}

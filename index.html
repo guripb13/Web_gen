@@ -2,42 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="style.css">
-     
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="right panel.css">
+
+    <script src="script.js" defer></script>
+    <title>Web Gen</title>
 </head>
 <body>
-   <h1> Welcome to web_gen!</h1>
-   <h2 style="margin-bottom:0px;">Form</h2>
-<h4 style="margin-top:0px;color:grey;">fill the required fields carefully</h4>
-<form action="web.html" method="get"><div class="form">
-    <div class="input-container">
-        <!-- The placeholder=" " is mandatory for the CSS :not(:placeholder-shown) trick to work -->
-        <input type="text" id="username" class="fancy-input" placeholder=" " required>
-        <label for="username" class="input-label"><span class="if_any"style="color:#78909c;font-size:16px;">Enter</span> your name</label>
-    </div>
-    <div class="input-container">
-
-        <input type="text" id="business_name" class="fancy-input" placeholder=" " required>
-        <label for="business_name" class="input-label"><span class="if_any"style="color:#78909c;font-size:16px;">Enter</span> name of Your business</label>
-    </div>
-    <div class="input-container">
+<div class="header">
+  
+    <div class="main-content">
+        <h1>Welcome to web_gen!</h1>
+        <h2 style="margin-bottom:0px;">Form</h2>
+        <h4 style="margin-top:0px;color:grey;">fill the required fields carefully</h4>
         
-        <input oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)" id="mobile" class="fancy-input" placeholder=" " >
-        <label for="mobile" class="input-label"><span class="if_any"style="color:#78909c;font-size:16px;">Enter</span> your Mobile No. <span class="if_any">(if any)</span></label>
+        <form action="web.html" method="get">
+            <div class="form">
+                <div class="input-container">
+                    <input type="text" id="username" class="fancy-input" placeholder=" " required>
+                    <label for="username" class="input-label"><span class="if_any" style="color:#78909c;font-size:16px;">Enter</span> your name</label>
+                </div>
+                
+                <div class="input-container">
+                    <input type="text" id="business_name" class="fancy-input" placeholder=" " required>
+                    <label for="business_name" class="input-label"><span class="if_any" style="color:#78909c;font-size:16px;">Enter</span> name of Your business</label>
+                </div>
+                
+                <div class="input-container">
+                    <input oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)" id="mobile" class="fancy-input" placeholder=" ">
+                    <label for="mobile" class="input-label"><span class="if_any" style="color:#78909c;font-size:16px;">Enter</span> your Mobile No. <span class="if_any">(if any)</span></label>
+                </div>
+                
+                <div class="input-container">
+                    <input type="email" id="email" class="fancy-input" placeholder=" ">
+                    <label for="email" class="input-label"><span class="if_any" style="color:#78909c;font-size:16px;">Enter</span> your email <span class="if_any">(if any)</span></label>
+                </div>
+                
+                <div class="input-container">
+                    <textarea id="address" class="fancy-input" placeholder=" "></textarea>
+                    <label for="address" class="input-label"><span class="if_any" style="color:#78909c;font-size:16px;">Enter</span> your Address <span class="if_any">(if any)</span></label>
+                </div>
+                
+                <button type="submit" class="submit" id="submitBtn">Proceed</button>
+            </div>
+        </form>
     </div>
-   <div class="input-container">
-        <input type="email" id="email" class="fancy-input" placeholder=" ">
-        <label for="email" class="input-label"><span class="if_any" style="color:#78909c;font-size:16px;">Enter</span> your email <span class="if_any">(if any)</span></label>
+    <div class="panel">
+        hlo
     </div>
-    <div class="input-container">
-        <textarea id="address" class="fancy-input" placeholder=" "></textarea>
-        <label for="address" class="input-label"><span class="if_any" style="color:#78909c;font-size:16px;">Enter</span> your Address <span class="if_any">(if any)</span></label>
-    </div>
-    <button type="submit" class="submit">Create</button>
+    
 </div>
-</form>
 </body>
 </html>

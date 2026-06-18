@@ -11,7 +11,7 @@
     box-sizing: border-box;
     font-family: sans-serif;
     transform: translateX(102%);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.6s ease-in-out;
 }
 
 .panel.open {

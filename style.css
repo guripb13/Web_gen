@@ -196,7 +196,7 @@ textarea.fancy-input {top:-40%;
     animation : slideLeft 1s forwards; /* Smooth slide animation */
 }
 @keyframes slideLeft {
-    0% { transform: translateX(0); }
+    37% { transform: translateX(0); }
 
     100% { transform: translateX(-15vw); }
 }
